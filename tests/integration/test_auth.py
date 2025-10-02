@@ -48,7 +48,7 @@ def test_login(client):
 
     # Login
     login_data = {"username": "loginuser", "password": "pass123"}
-    response = client.post("/auth/login", data=login_data)
+    response = client.post("/auth/login", json=login_data)
     assert response.status_code == 200
     assert "access_token" in response.json()
     assert response.json()["token_type"] == "bearer"
@@ -58,5 +58,5 @@ def test_login(client):
 def test_login_invalid_credentials(client):
     """Test login with invalid credentials."""
     login_data = {"username": "nonexistent", "password": "wrong"}
-    response = client.post("/auth/login", data=login_data)
+    response = client.post("/auth/login", json=login_data)
     assert response.status_code == 401

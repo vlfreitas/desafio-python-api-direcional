@@ -54,5 +54,5 @@ def auth_token(client):
 
     # Login to get token
     login_data = {"username": "testuser", "password": "test123"}
-    response = client.post("/auth/login", data=login_data)
+    response = client.post("/auth/login", json=login_data)
     return response.json()["access_token"]

@@ -151,9 +151,12 @@ Content-Type: application/json
 
 ```bash
 POST /auth/login
-Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
 
-username=corretor01&password=senha123
+{
+  "username": "corretor01",
+  "password": "senha123"
+}
 ```
 
 Resposta:
